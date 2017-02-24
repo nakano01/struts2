@@ -1,6 +1,8 @@
 
 package com.internousdev.struts2.action;
 
+import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.struts2.dao.LoginDAO;
@@ -26,6 +28,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		}
 		session.put("name",dto.getName());
 		return ret;
+	}
 		
 		public String getName(){
 			return name;
@@ -38,7 +41,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			this.password=password;
 		}
 		
-		public Map<String,Object>getSession(){
+		public Map<String,Object> getSession(){
+			return this.session;
 		}
 		
 		public void setSession(Map<String,Object>session){
